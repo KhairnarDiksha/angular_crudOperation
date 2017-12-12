@@ -1,0 +1,35 @@
+            body{
+                background-color: #e8e8e8;
+            }
+            .active{
+                font-size: 20px;
+            }
+            .container-fluid{
+                   height: 60px;
+            }
+            .navbar-nav>li>a{
+                height: 60px;
+            }
+            #searchbtn{
+                margin-left: -25px;
+            }
+            .navbar-inverse {
+                background-color: #1d507b;
+                border-color: #080808;
+            }
+            #home{
+                color: #ffffff;
+                background-color: #1d507b;
+                padding-top: 20px;
+                }
+            .panel-primary>.panel-heading{
+                color: #fff;
+                    background-color: #b7b2b2;
+                    border-color: #c3c4c5;
+                }
+                            .panel-primary {
+                    border-color: #959ca2;
+                }
+            #Task{
+                font-size: 15px;
+            }       

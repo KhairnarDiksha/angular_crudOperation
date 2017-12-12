@@ -1,0 +1,91 @@
+<br/>
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    
+     <form class="form" role="form" id="addEventForm" ng-submit='eventCtl.submitForm(eventCtl.eventForm)' novalidate name="addEventForm">
+         
+        <div class="col-md-4">
+
+            <div class="form-group">
+
+                    <input type="text" placeholder="Task Name" ng-model='eventCtl.eventForm.name' required class="form-control"  name="eventName" >
+			 </div>
+        </div>
+
+        <div class="col-md-5">
+			<button id="searchbtn" type="submit" class="btn btn-primary" id="submitbtn" >Submit</button>
+        </div>
+    
+    </form>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-2"></div>
+   
+        <div class="col-md-7">
+             
+            <div class="panel panel-primary">  
+              <div class="panel-heading"> 
+                  
+                <h3 class="panel-title"><strong>Records</strong></h3>  
+                  <div class="pull-right">
+                  <div class="search">
+                        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" ng-model="searchText"/>
+                    </div>
+                  </div>
+                  
+              </div>  
+                <div class="box" style="height: 500px; overflow-x: auto;" >
+              <div class="panel-body">  
+                
+                  <table class="table table-hover table-striped">
+                	<thead>
+                		<tr>
+                			<th style="width: 10px">Rno</th>
+                            <th style="width: 70%">Task Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                			
+                		</tr>
+                	</thead>
+                	<tbody>
+                	  
+                        <tr ng-repeat="event in eventCtl.event |  filter: searchText: false track by $index ">
+                            <td id="Task" ng-show="!eventCtl.edit[$index]" >{{$index}}</td>
+                            <td id="Task" ng-show="!eventCtl.edit[$index]" >{{event.name}}</td>      
+                            
+                            <td ng-show="!eventCtl.edit[$index]"> 
+                                 <button class="btn btn-primary"  ng-click="eventCtl.edit[$index] = !eventCtl.edit[event.id];newvalue=event.name"> Edit </button>
+   
+                            </td >
+                            <td ng-show="!eventCtl.edit[$index]"><button  type="submit" class="btn btn-primary glyphicon glyphicon-remove" ng-click="eventCtl.deleteTask($index)" >
+                                </button>
+                            </td>
+                            
+                			<td   ng-show="eventCtl.edit[$index]">{{$index}}</td>
+                            <td   ng-show="eventCtl.edit[$index]"><input type="text" class="form-control" ng-model="newvalue"></td>
+                            
+                            <td  ng-show="eventCtl.edit[$index]">
+                                <button class="btn btn-primary" 
+                                        ng-click="eventCtl.update(event,newvalue);eventCtl.edit[$index] = !eventCtl.edit[$index]"> Save </button>                             
+                               
+                            </td>
+                            <td></td>
+                		</tr>
+                        
+                       
+
+                	</tbody>
+                </table>
+       
+               
+               
+              </div>  
+            </div>
+        </div>  
+    </div>
+</div>
+<br/>
+
